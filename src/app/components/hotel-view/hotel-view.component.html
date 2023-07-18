@@ -1,0 +1,183 @@
+<section class="hotel_view">
+    <div class="container">
+        <!-- <div class="d-flex py-5 page_heading hotel_view_title align-items-center justify-content-between">
+            <h2>
+                {{hotelData.name}} 
+            </h2> -->
+            <!-- <span class="address"><i class="fa-solid fa-location-dot"></i> {{hotelData.address_line_1}}</span> -->
+            <!-- <ul class="d-flex align-items-center gap-4">
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+                <li><a href="#" class="theme_btn">Reserve</a></li>
+            </ul> -->
+        <!-- </div> -->
+        <!-- <div class="row hotel_images">
+            <div class="col-md-7 main_image">
+            <img [src]="hotelData.image[0].image || '../../../assets/img/image-place-holder.jpg'" alt="">
+            </div>
+            <div class="col-md-5 secondary_image">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img [src]="hotelData?.image?.[1]?.image || '../../../assets/img/image-place-holder.jpg'" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <img [src]="hotelData?.image?.[2]?.image || '../../../assets/img/image-place-holder.jpg'" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <img [src]="hotelData?.image?.[3]?.image || '../../../assets/img/image-place-holder.jpg'" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <img [src]="hotelData?.image?.[4]?.image || '../../../assets/img/image-place-holder.jpg'" alt="">
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="">
+        <div class="calander_wrap" [class.hovered]="isHoveredOverCalendar">
+            <img [src]="hotelData.image[0].image || '../../../assets/img/image-place-holder.jpg'" alt="">
+            <div class="container" *ngIf="!roomView">
+                <div class="heading mb-5 justify-content-between d-flex align-items-center">
+                    <h2 [routerLink]="'/search-result'" class="m-0 d-flex gap-2 align-items-center">
+                        <i class=" back_arrow fa-solid fa-chevron-left"></i>
+                        {{hotelData.name}} 
+                    </h2> 
+                    <a  [href]="getGoogleMapsLink()" target="_blank" class="address"><i class="fa-solid fa-location-dot"></i> {{hotelData.address_line_1}}</a>
+                </div>
+              <h2 class="text-center">CHECK AVAILABILITY</h2>
+              
+             <div class=" c_wrap mt-2">
+                <ngb-datepicker
+                class="rangeDatepicker"
+                #dp
+                (dateSelect)="onDateSelection($event)"
+                (mouseenter)="isHoveredOverCalendar = true"
+                (mouseleave)="isHoveredOverCalendar = false"
+                [displayMonths]="2"
+                [dayTemplate]="t"
+                outsideDays="hidden"
+              ></ngb-datepicker>
+              <ng-template #t let-date let-focused="focused">
+                <span
+                  class="custom-day"
+                  [class.focused]="focused"
+                  [class.range]="isRange(date)"
+                  [class.faded]="isHovered(date) || isInside(date)"
+                  (mouseenter)="hoveredDate = date"
+                  (mouseleave)="hoveredDate = null"
+                >
+                  {{ date.day }}
+                </span>
+              </ng-template>
+              <div class="d-flex justify-content-end gap-2 align-items-center  mt-2">
+                <p class="text-center m-0  dates">{{ formatDate(fromDate) }} <span>to</span> {{ formatDate(toDate) }}</p>
+                <button class="theme_btn" (click)="openRooms(roomModal,hotelData)">Check</button>
+              </div>
+             </div>
+            </div>
+          </div>
+    </div>
+    <div class="container mt-3">
+        <div class="hotel_description">
+            <p>{{hotelData.description}}</p>
+            <h3>Most popular facilities</h3>
+            <ul >
+                <li *ngFor="let item of hotelData.property_amenity">
+                    <i class="fa-solid fa-ban-smoking" *ngIf="item.amenity_list.amenity_group[0].name == 'Non-Smoking Rooms'"></i>
+                    <i class="fa-solid fa-wifi" *ngIf="item.amenity_list.amenity_group[0].name == 'Free Wifi'"></i>
+                    <i class="fa-solid fa-champagne-glasses" *ngIf="item.amenity_list.amenity_group[0].name == 'Bar'"></i>
+                    <i class="fa-solid fa-car-side" *ngIf="item.amenity_list.amenity_group[0].name == 'Airport Shuttle'"></i>
+                     {{item.amenity_list.amenity_group[0].name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<ng-template #roomModal let-c="close" let-d="dismiss">
+    <div class="global-modal">
+        <div class="room_modal">
+            <i class="fa-regular fa-circle-xmark" aria-label="Close" (click)="d('Cross click')"></i>
+            <div class="container" [@popin]>
+                <div class="row mt-4" *ngIf="hotelData.room !== []">
+                    <div class="col-md-3 mb-4"  *ngFor="let item of hotelData.room">
+                        <div class="room_card">
+                            <img [src]="'https://backend.staybook.pk/public/images/'+item.image[0].room_image" alt="">
+                        <div class="p-2">
+                            <h2 class="d-flex justify-content-between align-items-center">{{item.display_name}} 
+                                <ul class="stars d-flex align-items-center gap-1 m-0">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </h2>
+                            <ul>
+                                <li><i class="fa-solid fa-user"></i>{{item.maximum_sleep}} Sleeps</li>
+                                <li><i class="fa-solid fa-bed"></i>{{item.single_bed}} Sinlge beds</li>
+                                <li><i class="fa-solid fa-bed"></i>{{item.double_bed}} Double beds</li>
+                            </ul>
+                            <ul class="free-cancel">
+                                <li>FREE cancellation</li>
+                                <li>No prepayment needed <span>– pay at the property</span></li>
+                            </ul>
+                            <ul class="d-flex justify-content-between align-items-center m-0">
+                                <li>
+                                  <p>Rs : <span>{{decimalPipe.transform(calculateRoomWeekDayPrice(item),'1.0-0')  }}</span></p>
+                                </li>
+                                <li>
+                                  <button class="theme_btn" (click)="roomDetails(roomReserve,item)">Reserve</button>
+                                </li>
+                              </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #roomReserve let-c="close" let-d="dismiss">
+    <div class="global-modal">
+        <div class="room_modal room_viewModal">
+            <i class="fa-regular fa-circle-xmark" aria-label="Close" (click)="d('Cross click')"></i>
+            <div class="container" [@popin]>
+                <div class="roomReserve">
+                    <div class="row">
+                        <div class="col-md-6 room_images" [ngClass]="{'room_imagesOverflow': roomData.image.length > 2}">
+                            <div class="d-flex flex-wrap">
+                                <div class="mb-3  w-100" *ngFor="let item of roomData.image">
+                                    <img [src]="'https://backend.staybook.pk/public/images/'+item.room_image" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 room_details">
+                            <h2>Room {{roomData.display_name}}</h2>
+                            <p>{{roomData.type}}</p>
+                            <ul>
+                                <li><img src="../../../assets/img/icon/double-bed.png" alt=""> Double Bed: {{roomData.double_bed}}</li>
+                                <li><img src="../../../assets/img/icon/single-bed.png" alt=""> Single Bed: {{roomData.single_bed}}</li>
+                                <li><img src="../../../assets/img/icon/sleep.png" alt="">Maximum Sleep : {{roomData.maximum_sleep}}</li>
+                                <li><img src="../../../assets/img/icon/house.png" alt="">Room Size : {{roomData.size}}</li>
+                            </ul>
+                            <h4>Amenities</h4>
+                            <ul>
+                                <li *ngFor="let item of roomData.amenities">
+                                    <img src="../../../assets/img/icon/check-mark.png" alt=""> {{item.amenity_list.name}}
+                                </li>
+                            </ul>
+                            <h4>Season</h4>
+                            <ul class="season">
+                                <li>Weekday Price <span>Rs {{decimalPipe.transform(roomData.rate_plan.week_days_price, '1.0-0')}}</span></li> 
+                                <li>Weekend Price <span>Rs {{decimalPipe.transform(roomData.rate_plan.weekends_price, '1.0-0')}}</span></li> 
+                            </ul>
+                            <div class="d-flex justify-content-end">
+                                <button class="theme_btn">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+

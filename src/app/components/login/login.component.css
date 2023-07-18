@@ -1,0 +1,162 @@
+.login_main > img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: blur(11px);
+  z-index: -1;
+}
+
+.login_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_wrap {
+  background: #fff;
+  width: 77%;
+  position: absolute;
+  border-radius: 10px;
+  height: 700px;
+  overflow: hidden;
+}
+.login_form form button {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background: #082948;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login_image_wrap > div {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  width: 70%;
+}
+.login_image_wrap {
+  position: relative;
+  height: 100%;
+}
+.login_image_wrap::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.login_form p {
+  margin-top: 20px;
+}
+
+.login_form p a {
+  color: #082948 !important;
+  cursor: pointer;
+}
+.login_image_wrap > img {
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.row {
+  height: 100%;
+}
+
+.login_image_wrap > div h2 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.login_image_wrap > div h2 span {
+  display: block;
+}
+
+.login_image_wrap > div p {
+  color: #fff;
+}
+
+.login_form {
+  padding: 30px;
+  width: 67%;
+  margin: 0 auto;
+}
+
+.login_form > h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.login_form > h2 + p {
+  width: 66%;
+}
+
+
+
+.login_form .login_input_wrap input {
+  width: 100%;
+  background: #26547e38;
+  height: 47px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+.login_input_wrap {
+  margin-bottom: 10px;
+}
+
+.password-input i {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+}
+
+.password-input {
+  position: relative;
+}
+.login_form .login_input_wrap label {color: #000;text-transform: uppercase;font-weight: 500;}
+
+.login_form form {
+  margin-top: 30px;
+}
+
+.social_login button {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  width: 100%;
+  display: block;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.social_login button img {
+  width: 30px;
+}
+
+.social_login ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social_login ul li {
+  width: 100%;
+}
+
+.social_login button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.social_login {
+  margin-top: 30px;
+}
+
+
+

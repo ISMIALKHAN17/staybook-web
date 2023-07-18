@@ -1,0 +1,99 @@
+
+
+
+.room_details h2 {
+    font-size: 37px;
+    margin: 0;
+}
+.room_details h2 + p {
+    font-size: 20px;
+    font-weight: 500;
+}
+.room_details  ul {
+    column-count:2 ;
+
+}
+.room_details  ul:first-child li img{
+    filter: invert(14%) sepia(11%) saturate(5675%) hue-rotate(178deg) brightness(97%) contrast(101%);
+}
+.room_details ul li img {
+    width: 24px;
+}
+.room_details ul li {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 7px;
+}
+.room_details h4 {
+    font-size: 22px;
+    font-weight: 500;
+}
+.room_viewModal {
+    height: auto;
+    overflow: unset;
+}
+
+ul.season span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+ul.season li {
+    font-size: 20px;
+}
+.roomReserve .theme_btn{
+    background-color: var(--main-color);
+}
+input.form-control {
+    border-color: #ced4da; /* Gray border for inputs */
+  }
+  
+  .btn-outline-secondary {
+    color: #6c757d; /* Subtle text color for the button */
+    border-color: #6c757d; /* Subtle border color for the button */
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #f8f9fa; /* Hover background color for the button */
+  }
+
+  .room_images img{
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.room_main_image img{
+      border-radius: 5px;
+      height: 500px;
+      width: 100%;
+      object-fit: cover;
+
+  }
+
+  .room_images .active img {box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+
+  .room_images{
+    margin-top: 20px;
+  }
+
+  .price_summry ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--main-color);
+    font-size: 16px;
+}
+
+.price_summry ul li span {
+    font-weight: 600;
+    color: #082948;
+    font-size: 20px;
+}
+h2{
+    font-size: 40px;
+}

@@ -1,0 +1,8 @@
+ul.dropdown-menu {
+    display: block;
+    right: 0;
+}
+
+ul.dropdown-menu a {
+    color: #000 !important;
+}

@@ -1,0 +1,129 @@
+<div class="home_wrap">
+  <div class="container">
+    <div class="main-heading">
+      <h1>Experience Luxury at Its Finest Book Premium Hotels and Resorts</h1>
+      <p>
+        Indulge in the ultimate luxury experience with our collection of premium
+        hotels and resorts.
+      </p>
+      <div class="search_form" [formGroup]="searchForm">
+        <div class="icon_search">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" placeholder="Enter city name" formControlName="city" [(ngModel)]="searchTerm" (input)="filterCities()">
+            <div class="dropdown-h">
+                <ul class="dropdown-menu-h" [hidden]="filteredCities.length === 0">
+                    <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                        {{ city.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="persons" (click)="toggleDropdown()">
+            <i class="fa-solid fa-user"></i>
+            <span>{{ searchForm.value.adults }} Adults - {{ searchForm.value.kids }} Child - {{ searchForm.value.rooms }} Room</span>
+            <div class="dropdown" [hidden]="!isDropdownOpen">
+                <ul class="dropdown-menu-h persons-menu">
+                    <li>
+                        <span>Adults:</span>
+                        <div>
+                            <button (click)="decreaseCount('adults'); $event.stopPropagation()">-</button>
+                            <span>{{ searchForm.value.adults }}</span>
+                            <button (click)="increaseCount('adults'); $event.stopPropagation()">+</button>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Kids:</span>
+                        <div>
+                            <button (click)="decreaseCount('kids'); $event.stopPropagation()">-</button>
+                            <span>{{ searchForm.value.kids }}</span>
+                            <button (click)="increaseCount('kids'); $event.stopPropagation()">+</button>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Rooms:</span>
+                        <div>
+                            <button (click)="decreaseCount('rooms'); $event.stopPropagation()">-</button>
+                            <span>{{ searchForm.value.rooms }}</span>
+                            <button (click)="increaseCount('rooms'); $event.stopPropagation()">+</button>
+                        </div>
+                    </li>
+                    <li>
+                        <button (click)="saveChanges(); $event.stopPropagation()">Save</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <button type="submit" (click)="onSubmit()"> 
+            <span *ngIf="loading" class="circle-loader"></span>
+            <span *ngIf="!loading">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Explore
+            </span>
+           
+        </button>
+      </div>
+    </div>
+    <section class="cities text-center py_8">
+        <h2>Most Visited In April 2023</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/kash.jpg" alt="">
+                    <h2>Kashmir</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/isl.jpg" alt="">
+                    <h2>Islamabad</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/mul.jpg" alt="">
+                    <h2>Multan</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/naran.jpg" alt="">
+                    <h2>NARAN KAGHAN</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cities text-center pb_8">
+        <h2>Most Visited In April 2023</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/kash.jpg" alt="">
+                    <h2>Kashmir</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/isl.jpg" alt="">
+                    <h2>Islamabad</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/mul.jpg" alt="">
+                    <h2>Multan</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="city_wrap">
+                    <img src="../../../assets/img/naran.jpg" alt="">
+                    <h2>NARAN KAGHAN</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div> 
+</div>

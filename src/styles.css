@@ -1,1 +1,1006 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+/***** General CSS *****/
+
+body {
+  word-break: break-word;
+  font: 16px/25px "poppins";
+  color: #747474;
+  overflow-x: hidden;
+}
+html {
+  overflow-x: hidden;
+}
+
+:root {
+  --main-color: #26547e;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  white-space: initial;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #082948;
+}
+
+a:hover {
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="password"]:focus,
+select:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  outline: none;
+}
+
+select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+textarea,
+input[type="tel"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+p {
+  font-weight: 400;
+}
+
+/***** Font Files *****/
+
+/***** Custom Classes *****/
+
+.noPadding {
+  padding: 0;
+}
+
+.noLeft {
+  padding-left: 0;
+}
+
+.noRight {
+  padding-right: 0;
+}
+
+.centerCol {
+  float: none;
+  margin: 0 auto;
+}
+
+.pt_8 {
+  padding-top: 80px;
+}
+
+.pb_8 {
+  padding-bottom: 80px;
+}
+
+.py_8 {
+  padding: 80px 0px;
+}
+
+.theme_btn {
+  --color: var(--main-color);
+  padding: 0.8em 1.7em;
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 0.3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+}
+
+.theme_btn::before,
+.theme_btn::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease;
+}
+
+.theme_btn::before {
+  top: -1em;
+  left: -1em;
+}
+
+.theme_btn::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.theme_btn:hover::before,
+.theme_btn:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.theme_btn:hover {
+  color: rgb(255 255 255);
+}
+
+.theme_btn:active {
+  filter: brightness(0.8);
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+
+.flexCol {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  align-items: center;
+}
+
+h1 {
+  font-family: var(--old);
+  font-size: 55px;
+  line-height: 1.2;
+  color: #082948;
+  font-weight: 500;
+  margin: 0 0 17px;
+}
+
+h2 {
+  font-family: var(--old);
+  font-size: 55px;
+  line-height: 1.2;
+  color: #082948;
+  font-weight: 500;
+  margin: 0 0 30px;
+}
+
+h3 {
+  font-family: var(--mons);
+  font-size: 30px;
+  line-height: 1.2;
+  color: #000000;
+  font-weight: 600;
+  margin: 0 0 28px;
+}
+
+h4 {
+  font-family: var(--mons);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #082948;
+  font-weight: 500;
+  margin: 0 0 13px;
+}
+
+h5 {
+  font-family: var(--mons);
+  font-size: 20px;
+  line-height: 1.2;
+  color: #082948;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+
+h6 {
+  font-family: var(--mons);
+  font-size: 18px;
+  line-height: 1.2;
+  color: #082948;
+  font-weight: 500;
+  margin: 0 0 22px;
+}
+
+select {
+  padding: 0 40px 0 30px;
+}
+
+::-webkit-input-placeholder {
+  color: #575757;
+}
+
+::-moz-placeholder {
+  color: #575757;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #575757;
+}
+
+:-moz-placeholder {
+  color: #575757;
+  opacity: 1;
+}
+
+/*header css start */
+
+.menuSec {
+  padding: 30px 0;
+  
+}
+
+.menuSec img {
+  margin: 0;
+}
+
+.menuSec ul {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  text-align: right;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 63px;
+  font-weight: 500;
+}
+
+.menuSec ul li {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.menuSec li ul {
+  display: none;
+}
+.menuSec {
+  position: absolute;
+  z-index: 1;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 10px;
+}
+
+.menuSec img {
+  width: 150px;
+}
+
+.topbar{
+  background-color: var(--main-color);
+padding: 5px 40px;
+}
+
+.topbar ul li a{
+  color: #fff;
+}
+
+
+.menuSec ul li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #090909;
+  font-size: 15px;
+}
+
+.menuSec ul li:last-child a {
+  padding-right: 0px;
+}
+
+.menuSec ul li a:hover,
+.menuSec ul li a.active {
+  color: green;
+}
+
+.menuSec li:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  background-color: #000000;
+  left: 0px;
+  width: 230px;
+  text-align: left;
+  top: 38px;
+}
+
+.menuSec li > ul > li > a {
+  border: none;
+  padding: 13px 20px !important;
+  color: #fff !important;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.menuSec li > ul > li,
+.menuSec li > ul > li > a {
+  display: block;
+  margin: 0;
+}
+
+.menuSec li > ul > li > a:before,
+.menuSec li > ul > li > a:after {
+  display: none;
+}
+
+.menuSec li:hover li {
+  float: none;
+}
+
+.menuSec li ul li a:hover {
+  background-color: #ffffff;
+  color: #000000 !important;
+}
+
+.menuSec ul ul ul {
+  left: 100%;
+  top: 0;
+}
+
+.menuSec ul:before,
+.menuSec ul:after {
+  content: " ";
+  display: table;
+}
+
+.menuSec ul:after {
+  clear: both;
+}
+
+.menuSec li > ul > li:hover > ul {
+  left: 230px;
+  top: 0px;
+  width: 270px;
+}
+
+.droopdwon li:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  background-color: #000000;
+  left: 0px;
+  width: 230px;
+  text-align: left;
+  top: 40px;
+}
+
+.droopdwon {
+  float: left;
+}
+
+.droopdwon li:hover li a:hover {
+  background-color: #ffffff;
+  color: #000 !important;
+}
+
+/*header css start */
+
+.dropdown-menu-h {
+  position: absolute !important;
+  z-index: 1000;
+  display: block;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left !important;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+/*banner css start */
+
+/* Tab slider fix  */
+
+.tab_sec .tab-pane {
+  display: block;
+  border: 0;
+  height: 0;
+}
+
+.tab_sec .tab-pane.active {
+  display: block !important;
+  height: auto;
+}
+
+/* Tab slider fix  */
+.stars i{
+  color: gold;
+  font-size: 12px;
+}
+/* inner banner  */
+.inner_banner {
+  position: relative;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.inner_banner img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.inner_banner:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+
+.inner_banner h2 {
+  position: absolute;
+  color: #fff;
+  font-size: 50px;
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+  width: 70%;
+}
+
+
+.inner_banner h2 span {
+  font-size: 19px;
+  color: white;
+  font-weight: 400;
+  text-transform: capitalize;
+  display: block;
+}
+/* inner banner  */
+
+/* hotel_view */
+.rangeDatepicker .ngb-dp-month {
+  width: 100% !important;
+}
+.rangeDatepicker .ngb-dp-day {
+    width: 100% !important;
+  height: 70px; 
+}
+.rangeDatepicker .custom-day.faded , .custom-day.range {
+  width: 100%;
+}
+.rangeDatepicker .rangeDatepicker .custom-day {
+  width: 100%;
+}
+.rangeDatepicker .ngb-dp-navigation-chevron {
+  color: #fff;
+  font-size: 22px;
+}
+
+.rangeDatepicker .ngb-dp-weekdays {
+  justify-content: space-between;
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+.rangeDatepicker .ngb-dp-weekday {
+  color: #fff;
+  font-size: 16px;
+}
+
+.rangeDatepicker .ngb-dp-header {
+  background: transparent;
+}
+
+.rangeDatepicker .ngb-dp-month-name {
+  background: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin: 14px 0px;
+}
+
+.rangeDatepicker .form-select {
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  font-size: 18px !important;
+  height: 50px !important;
+  margin: 7px;
+}
+
+.rangeDatepicker .form-select option {
+  color: var(--main-color);
+}
+.main_image img {
+  height: 530px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.secondary_image img {
+  height: 250px;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  object-fit: cover;
+}
+.searchRooms .persons {
+  color: var(--main-color);
+  border: 1px solid;
+}
+.searchRooms input {
+  width: 21%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--main-color);
+  padding: 10px;
+}
+.hotel_description {
+  margin-bottom: 20px;
+}
+.room_card h2 {
+  font-size: 25px;
+  margin: 0;
+  margin: 10px 0px;
+}
+.room_card h2 + ul {
+  display: flex;
+  justify-content: space-between;
+}
+.room_card h2 + ul li {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.room_card h2 + ul li i {
+  color: var(--main-color);
+}
+
+.room_card h2 + ul li {
+  font-weight: 500;
+}
+
+.room_card img {
+  height: 249px;
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+}
+.room_card ul:last-child p{
+margin: 0;
+}
+
+.room_card ul:last-child .theme_btn {
+  padding: 6px 24px;
+  font-size: 16px;
+  background: var(--main-color);
+  color: #fff;
+}
+
+.room_card ul:last-child li p span {
+  font-weight: 700;
+  color: green;
+  font-size: 22px;
+}
+
+.room_card ul:last-child li p {
+  font-size: 26px;
+  color: #000;
+  font-weight: 500;
+}
+
+.room_card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+section.hotel_view h3 {
+  color: var(--main-color);
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+.searchRooms .theme_btn {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.calander_wrap .heading span {
+  color: #fff;
+}
+/* hotel_view */
+/* home  */
+.home_wrap {
+  background-image: url(assets/img/hotel.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  isolation: isolate;
+  padding-top: 150px;
+}
+
+.home_wrap:before {
+  height: 100%;
+  width: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00264a;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.main-heading h1 {
+  color: #fff;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.main-heading p {
+  color: #fff;
+}
+
+.search_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon_search {
+  position: relative;
+  background: #ffffff3b;
+  color: #fff;
+  padding: 0px 29px;
+  border-radius: 5px;
+}
+
+.icon_search input {
+  border: none;
+  background: transparent;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+}
+
+.icon_search input::placeholder {
+  color: #fff;
+}
+
+.icon_search {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.icon_search i {
+  position: absolute;
+  left: 9px;
+}
+
+.persons {
+  background: #ffffff3b;
+  color: #fff;
+  padding: 0px 29px;
+  border-radius: 5px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.search_form > button {
+  border: none;
+  background-color: #0d80bf;
+  color: #fff;
+  border-radius: 5px;
+  height: 50px;
+  padding: 0px 20px;
+}
+
+section.cities > h2 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.city_wrap img {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.city_wrap h2 {
+  font-size: 26px;
+  color: #fff;
+  margin-top: 16px;
+  text-transform: uppercase;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+}
+
+.dropdown-h {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.persons {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu-h {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  width: 100%;
+}
+
+.dropdown-menu-h li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu-h li:hover {
+  background-color: #f0f0f0;
+}
+
+ul.dropdown-menu-h.persons-menu {
+  max-height: initial;
+}
+
+ul.dropdown-menu-h.persons-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul.dropdown-menu-h.persons-menu li div button {
+  background: transparent;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 1px solid #000;
+  transition: 0.3s;
+}
+
+ul.dropdown-menu-h.persons-menu li div button:hover {
+  background-color: #00264a;
+  color: #fff;
+  border-color: #fff;
+}
+ul.dropdown-menu-h.persons-menu li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 130px;
+}
+
+ul.dropdown-menu-h.persons-menu li > button {
+  background-color: #00264a;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 20px;
+}
+ul.dropdown-menu-h.persons-menu li:last-child {
+  display: flex;
+  justify-content: end;
+}
+/* home  */
+
+
+/* footer  */
+.footer .container{
+  padding: 80px 0px;
+  border-top: 2px solid var(--main-color);
+}
+section.footer img {
+  width: 170px;
+  margin-bottom: 10px;
+}
+.gap-2.social_icon a {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  background: var(--main-color);
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+  border: 1px solid var(--main-color);
+}
+
+
+
+.gap-2.social_icon a:hover {background: transparent;color: var(--main-color);}
+
+ul.contact_info li a i {
+  height: 30px;
+  width: 30px;
+  background: #e6e6e6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: var(--main-color);
+}
+
+ul.contact_info li {
+  margin-bottom: 12px;
+}
+
+.footer form input {
+  border: 1px solid var(--main-color);
+  height: 39px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.footer form button {
+  border: none;
+  background-color: var(--main-color);
+  color: #fff;
+  height: 39px;
+  padding: 0px 16px;
+  border-radius: 3px;
+}
+
+.footer form {
+  margin-bottom: 11px;
+}
+
+.footer form+img {
+  width: 250px;
+}
+/* footer  */
+
+
+.page_heading h2{
+margin: 0;
+font-size: 40px;
+}
+
+
+/* modal  */
+.modal-dialog {
+  max-width: 75vw;
+
+
+}
+
+.modal-content {
+  background: transparent;
+}
+
+.global-modal .room_modal {
+  border-radius: 10px;
+  height: 90vh;
+  overflow-y: scroll;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid #fff;
+  padding: 20px;
+  background-color: #ffffff1f;
+}
+
+.circle-loader {
+  width: 30px;
+  height: 30px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
+
+.global-modal .room_modal::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(254, 254, 254, 0.3);
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.global-modal .room_modal::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #fff;
+  border-radius: 10px;
+
+}
+
+.global-modal .room_modal::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--main-color);
+}
+
+.room_modal > i {
+  position: absolute;
+  right: 12px;
+  top: 11px;
+  font-size: 23px;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+
+
+/* modal  */
+

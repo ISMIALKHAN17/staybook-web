@@ -1,0 +1,193 @@
+.home_wrap{
+    background-image: url(../../../assets/img/hotel.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    isolation: isolate;
+    padding-top:150px ;
+}
+
+.home_wrap:before{
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00264A;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.main-heading {
+    text-align: center;
+}
+
+.main-heading h1 {
+    color: #fff;
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.main-heading p {
+    color: #fff;
+}
+
+.search_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icon_search {
+    position: relative;
+    background: #ffffff3b;
+    color: #fff;
+    padding: 0px 29px;
+    border-radius: 5px;
+}
+
+.icon_search input {
+    border: none;
+    background: transparent;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+}
+
+.icon_search input::placeholder {
+    color: #fff;
+}
+
+.icon_search {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.icon_search i {
+    position: absolute;
+    left: 9px;
+}
+
+.persons {
+    background: #ffffff3b;
+    color: #fff;
+    padding: 0px 29px;
+    border-radius: 5px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.search_form > button{
+    border: none;
+    background-color: #0D80BF;
+    color: #fff;
+    border-radius: 5px;
+    height: 50px;
+    padding:0px 20px ;
+}
+
+section.cities > h2 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.city_wrap img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.city_wrap h2 {
+    font-size: 26px;
+    color: #fff;
+    margin-top: 16px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.dropdown {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .persons{
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  .dropdown-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  ul.dropdown-menu.persons-menu {
+    max-height: initial;
+}
+
+ul.dropdown-menu.persons-menu li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul.dropdown-menu.persons-menu li div button {
+    background: transparent;
+    height: 30px ;
+    width: 30px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    transition: 0.3s;
+}
+
+ul.dropdown-menu.persons-menu li div button:hover{
+    background-color: #00264A;
+    color: #fff;
+    border-color: #fff;
+}
+ul.dropdown-menu.persons-menu li  div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+}
+
+ul.dropdown-menu.persons-menu li > button{
+    background-color: #00264A;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 20px;
+}
+ul.dropdown-menu.persons-menu li:last-child{
+    display: flex ;
+    justify-content: end;
+}

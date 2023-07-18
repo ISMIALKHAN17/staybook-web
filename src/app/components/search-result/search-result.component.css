@@ -1,0 +1,44 @@
+
+
+.hotel_wrap h2 {
+    font-size: 21px;
+    margin-bottom: 2px;
+}
+
+.hotel_wrap p {
+    margin-top: 10px;
+}
+.h_title{
+    margin-top: 10px;
+}
+.hotel_wrap .h_title + p {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.hotel_wrap .h_title + p i {
+    color: var(--main-color);
+}
+
+.hotel_wrap img {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.hotel_wrap{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.hotel_wrap:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.hotel_wrap p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+.hotel_description{
+    padding: 10px;
+}

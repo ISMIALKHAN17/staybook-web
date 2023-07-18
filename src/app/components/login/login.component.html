@@ -1,0 +1,116 @@
+<div class="login_main">
+    <img src="../../../assets/img/isl.jpg" alt="">
+    <div class="login_wrap">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="login_image_wrap">
+            <img src="../../../assets/img/isl.jpg" alt="">
+            <div>
+              <h2>Welcome <span>to Staybook.</span></h2>
+              <p>StayBook is a user-friendly hotel booking platform for travelers. Find your perfect accommodation from budget to luxury in destinations Pakistan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="login_form" *ngIf="screen == 'login'">
+            <h2>Login</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, fugiat? Dolor.</p>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                <div class="login_input_wrap">
+                  <label>Email</label>
+                  <input type="text" formControlName="email" autocomplete="new-password">
+                  <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                    <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                    <div *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                  </div>
+                </div>
+                <div class="login_input_wrap">
+                    <label>Password</label>
+                    <div class="password-input">
+                      <input [type]="showPassword ? 'text' : 'password'" formControlName="password" autocomplete="new-password">
+                      <i class="fa" [ngClass]="{ 'fa-eye': showPassword, 'fa-eye-slash': !showPassword }" (click)="togglePasswordVisibility()"></i>
+                    </div>
+                    <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                      <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                    </div>
+                    <p><a (click)="screen = 'forgot-password'">Forgot Password?</a></p>
+                  </div>
+                  
+                  
+                <button type="submit">
+                    <span *ngIf="!loading">Login</span>
+                    <span class="circle-loader" *ngIf="loading"></span>
+                </button>
+              </form>
+            <p>Don't have an account ? <a (click)="screen = 'register'">Register Now</a></p>
+            <div class="social_login">
+                <p>Login with social media</p>
+                <ul>
+                    <li><button><img src="../../../assets/img/icon/facebook_logo.webp" alt=""> Facebook</button></li>
+                    <li><button><img src="../../../assets/img/icon/google.webp" alt=""> Google</button></li>
+                </ul>
+            </div>
+          </div>
+          <div class="login_form" *ngIf="screen == 'register'">
+            <h2>Register</h2>
+            <form [formGroup]="signupForm" (ngSubmit)="signup()">
+              <div class="login_input_wrap">
+                <label>Full Name</label>
+                <input type="text" formControlName="fullName" class="form-control" [class.is-invalid]="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched">
+                <div class="invalid-feedback" *ngIf="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched">
+                  Please enter your full name.
+                </div>
+              </div>
+            
+              <div class="login_input_wrap">
+                <label>Phone Number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control" [class.is-invalid]="signupForm.get('phoneNumber')?.invalid && signupForm.get('phoneNumber')?.touched">
+                <div class="invalid-feedback" *ngIf="signupForm.get('phoneNumber')?.invalid && signupForm.get('phoneNumber')?.touched">
+                  Please enter your phone number.
+                </div>
+              </div>
+            
+              <div class="login_input_wrap">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [class.is-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                <div class="invalid-feedback" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                  Please enter a valid email address.
+                </div>
+              </div>
+            
+              <div class="login_input_wrap">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" [class.is-invalid]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                <div class="invalid-feedback" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                  Please enter a password with at least 6 characters.
+                </div>
+              </div>
+            
+              <button type="submit" class="btn btn-primary">
+                <span *ngIf="!loading">Signup</span>
+                <span class="circle-loader" *ngIf="loading"></span>
+              </button>
+            </form>
+            
+            <p>Already have an account ? <a (click)="screen = 'login'">Login</a></p>
+          </div>
+          <div class="login_form" *ngIf="screen == 'forgot-password'">
+            <h2>Forgot Password</h2>
+            <p>
+                Please enter your email address to initiate the password reset process.</p>
+            <form autocomplete="off">
+
+              <div class="login_input_wrap">
+                <label>Email</label>
+                <input type="text" autocomplete="new-password">
+              </div>
+              <button type="submit">Verify Email</button>
+               
+            </form>
+            <!-- <p>Already have an account ? <a (click)="isLoginFormVisible = true">Login</a></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,127 @@
+.hotel_view_title h2 span{
+    font-size: 14px;
+    display: block;
+    color: #7a7a7a;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.hotel_view_title h2 span i {
+    color: var(--main-color);
+}
+.hotel_view_title ul i {
+    font-size: 25px;
+    color: var(--main-color);
+}
+.custom-day {
+    text-align: center;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 100%;
+}
+.custom-day.focused {
+    background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+    background-color: rgb(2, 117, 216);
+    color: white;
+}
+.custom-day.faded {
+    background-color: rgba(2, 117, 216, 0.5);
+}
+.calander_wrap > img {
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+    transition: 0.5s;
+}
+.calander_wrap.hovered > img {
+    filter: blur(50px) !important;
+}
+.calander_wrap {
+    position: relative;
+    height: 980px;
+    overflow: hidden;
+    padding: 60px 0px;
+    padding-top: 100px;
+    isolation: isolate;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.calander_wrap:before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+ngb-datepicker.rangeDatepicker {
+    display: block;
+    border: 1px solid #fff;
+    transition: 0.3s ease-out;
+}
+ngb-datepicker.rangeDatepicker:hover {
+    transform: scale(1.012);
+}
+
+.calander_wrap h2 {
+    color: #fff;
+    margin: 0;
+}
+
+.address i {
+    color: var(--main-color);
+}
+
+.calander_wrap .theme_btn{
+    background-color: var(--main-color);
+    color: #fff;
+}
+.back_arrow  {
+    color: #fff;
+    font-size: 33px;
+    cursor: pointer;
+}
+
+
+.c_wrap ngb-datepicker{
+    scale: 1;
+}
+
+.heading h2 {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.heading a {
+    font-size: 13px;
+    color: #fff;
+}
+
+ul.free-cancel li {
+    font-size: 12px;
+    color: green;
+    font-weight: 600;
+}
+
+p.text-center.dates {
+    color: #fff;
+}
+
+ul.free-cancel li span {font-weight: 400;}
+
+

@@ -1,0 +1,26 @@
+<app-inner-banner [title]="title"></app-inner-banner>
+<div class="container py_8">
+    <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let hotel of data">
+            <div class="hotel_wrap" (click)="navigateToHotelView(hotel)">
+                <img [src]="hotel?.image?.[0]?.image || '../../../assets/img/image-place-holder.jpg'" alt="">
+                <div class="hotel_description">
+                <div class="d-flex justify-content-between h_title">
+                    <div>
+                        <h2> {{ hotel.name.length > 10 ? hotel.name.slice(0, 10) + '...' : hotel.name }}</h2>
+                    </div>
+                    <ul class="stars d-flex align-items-center gap-1 m-0">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                </div>
+                <p><i class="fa fa-map-marker-alt"></i>  {{ hotel.address_line_1.length > 20 ? hotel.address_line_1.slice(0, 20) + '...' : hotel.address_line_1 }}</p>
+                <p>{{ hotel.description.length > 90 ? hotel.description.slice(0, 90) + '...' : hotel.description }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

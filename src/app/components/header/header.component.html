@@ -1,0 +1,39 @@
+<div class="topbar">
+  <ul class="d-flex m-0 justify-content-end align-content-center gap-3">
+    <li><a routerLink="/login" *ngIf="!isLoggedIn">Login</a></li>
+    <li><a routerLink="/signup" *ngIf="!isLoggedIn">Signup</a></li>
+    <li *ngIf="isLoggedIn" class="pos">
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ userName.fullName }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" routerLink="/my-account">My Account</a></li>
+          <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+<header>
+    <div class="menuSec">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-2 col-sm-6 col-6">
+            <a  routerLink="/"><img src="../../../assets/img/dark-logo.png"  alt="img" /></a>
+          </div>
+          <div class="col-md-8 d-none d-md-block">
+            <ul id="menu">
+              <li><a  routerLink="/">Home</a></li>
+              <li><a href="about.html">Support</a></li>
+              <li><a href="service.html">Rewards</a></li>
+              <li><a href="videos.html">Careers</a></li>
+              <li><a href="videos.html">News & Promos</a></li>
+              <li><a href="videos.html">Partner Program</a></li>
+              <li><a href="videos.html">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

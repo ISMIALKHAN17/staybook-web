@@ -1,0 +1,78 @@
+<div class="container py_8">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="room_main_image">
+                <img [src]="'https://backend.staybook.pk/public/images/' + roomData.image[mainImageIndex].room_image" alt="">
+              </div>
+              <div class="room_images" [ngClass]="{'room_imagesOverflow': roomData.image.length > 2}">
+                <div class="d-flex gap-2">
+                  <div class="w-100" *ngFor="let item of roomData.image; let i = index" (click)="changeMainImage(i)" [ngClass]="{'active': i === mainImageIndex}">
+                    <img [src]="'https://backend.staybook.pk/public/images/' + item.room_image" alt="">
+                  </div>
+                </div>
+              </div>
+              
+              
+            <h2 class="m-0">Room {{roomData.display_name}}</h2>
+            <p>{{roomData.type}}</p>
+            <div class=" room_details mt-3">
+                <ul>
+                    <li><img src="../../../assets/img/icon/double-bed.png" alt=""> Double Bed: {{roomData.double_bed}}</li>
+                    <li><img src="../../../assets/img/icon/single-bed.png" alt=""> Single Bed: {{roomData.single_bed}}</li>
+                    <li><img src="../../../assets/img/icon/sleep.png" alt="">Maximum Sleep : {{roomData.maximum_sleep}}</li>
+                    <li><img src="../../../assets/img/icon/house.png" alt="">Room Size : {{roomData.size}}</li>
+                </ul>
+                <h4>Amenities</h4>
+                <ul>
+                    <li *ngFor="let item of roomData.amenities">
+                        <img src="../../../assets/img/icon/check-mark.png" alt=""> {{item.amenity_list.name}}
+                    </li>
+                </ul>
+                <h4>Season</h4>
+                <ul class="season">
+                    <li>Weekday Price <span>Rs {{decimalPipe.transform(roomData.rate_plan.week_days_price, '1.0-0')}}</span></li> 
+                    <li>Weekend Price <span>Rs {{decimalPipe.transform(roomData.rate_plan.weekends_price, '1.0-0')}}</span></li> 
+                </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="room_reservation">
+            <form [formGroup]="reservationForm" (submit)="reserveRoom()" class="p-4 bg-light rounded">
+            <h2>Reserve</h2>
+            <div class="price_summry">
+                <h4>Your price summary</h4>
+                <ul>
+                    <li>Original price <span>PKR {{decimalPipe.transform(roomData.totalPrice,'1.0-0')}}</span></li>
+                    <li>Start Date <span>{{roomData.fromDate.day +'-'+ roomData.fromDate.month +'-'+ roomData.fromDate.year}}</span></li>
+                    <li>End Date <span>{{roomData.toDate.day +'-'+ roomData.toDate.month +'-'+ roomData.toDate.year}}</span></li>
+                </ul>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="phone" formControlName="phone">
+            </div>
+            <div class="mb-3">
+              <label for="identification" class="form-label">CNIC or Passport</label>
+              <input type="text" class="form-control" id="identification" formControlName="identification">
+            </div>
+            <!-- <div class="input-group mb-3">
+              <input type="text" class="form-control" formControlName="discountCode" placeholder="Enter discount code">
+              <button class="btn btn-outline-secondary" type="button" (click)="applyDiscount()">Apply Discount</button>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Reserve Room</button>
+          </form>
+        </div>
+          
+          
+    </div>
+    </div>
+
+</div>
