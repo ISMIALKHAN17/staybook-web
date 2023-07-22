@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { RequestService } from 'src/app/services/request.service';
 import { EncryptionService } from 'src/app/services/encryption.service'; // Import the EncryptionService
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent {
  loading = false
  signupForm:any
 
- constructor(private formBuilder: FormBuilder , private req:RequestService,private authService: AuthService,  private encryptionService: EncryptionService) {}
+ constructor(private formBuilder: FormBuilder , private req:RequestService,private authService: AuthService,  private encryptionService: EncryptionService , private router: Router) {}
  ngOnInit() {
    this.loginForm = this.formBuilder.group({
      email: ['', [Validators.required, Validators.email]],
@@ -70,13 +71,12 @@ export class LoginComponent {
   }
     this.req.post('login', this.loginForm.value, true).subscribe(
       (res: any) => {
-        this.loading = false;
-        const user = JSON.stringify(res);
-        const encryptedUser = this.encryptionService.encryptData(user, 'stayBookLogin');
-        localStorage.setItem('user', encryptedUser);
+        if(res.email !== 'Invalid credentials'){
+          this.loading = false;
+          const user = JSON.stringify(res);
+          const encryptedUser = this.encryptionService.encryptData(user, 'stayBookLogin');
+          localStorage.setItem('user', encryptedUser);
         this.authService.setLoggedInStatus(true);
-        
-        // Show a success message using SweetAlert
         Swal.fire({
           icon: 'success',
           title: 'Login Success',
@@ -84,6 +84,23 @@ export class LoginComponent {
           timer: 2000,
           timerProgressBar: true
         });
+        const roomReserve = localStorage.getItem('roomReserve')
+        if(roomReserve === 'true'){
+          this.router.navigate(['/reservation']);
+          localStorage.removeItem('roomReserve')
+        }else{
+          this.router.navigate(['/']);
+        }
+      }else{
+        this.loading = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: 'Invalid email or password!',
+          timer: 2000,
+          timerProgressBar: true
+        });
+      }
       },
       (error: any) => {
         this.loading = false;

@@ -11,8 +11,6 @@
                   </div>
                 </div>
               </div>
-              
-              
             <h2 class="m-0">Room {{roomData.display_name}}</h2>
             <p>{{roomData.type}}</p>
             <div class=" room_details mt-3">
@@ -37,42 +35,82 @@
     </div>
     <div class="col-md-4">
         <div class="room_reservation">
-            <form [formGroup]="reservationForm" (submit)="reserveRoom()" class="p-4 bg-light rounded">
+          <div class="loading_wrap" *ngIf="loading">
+            <span class="loader"></span>
+          </div>
             <h2>Reserve</h2>
             <div class="price_summry">
                 <h4>Your price summary</h4>
+                <p>{{roomData.fromDate.day +' '+ months[roomData.fromDate.month - 1] +'-'+ roomData.fromDate.year}} To {{roomData.toDate.day +' '+ months[roomData.toDate.month - 1] +'-'+ roomData.toDate.year}}</p>
                 <ul>
-                    <li>Original price <span>PKR {{decimalPipe.transform(roomData.totalPrice,'1.0-0')}}</span></li>
-                    <li>Start Date <span>{{roomData.fromDate.day +'-'+ roomData.fromDate.month +'-'+ roomData.fromDate.year}}</span></li>
-                    <li>End Date <span>{{roomData.toDate.day +'-'+ roomData.toDate.month +'-'+ roomData.toDate.year}}</span></li>
+                  <li>Original price<span>PKR {{decimalPipe.transform(roomData.totalPrice,'1.0-0')}}</span></li>
+                  <li>Discount <span>0%</span></li>
+                  <li>Total <span>PKR {{decimalPipe.transform(roomData.totalPrice,'1.0-0')}}</span></li>
                 </ul>
             </div>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" formControlName="name">
+            <div class="coupon_code">
+              <h4>Discount Coupon</h4>
+             <form>
+              <input type="text" placeholder="Enter coupon code">
+              <button>Apply</button>
+             </form>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email">
-            </div>
-            <div class="mb-3">
-              <label for="phone" class="form-label">Phone Number</label>
-              <input type="text" class="form-control" id="phone" formControlName="phone">
-            </div>
-            <div class="mb-3">
-              <label for="identification" class="form-label">CNIC or Passport</label>
-              <input type="text" class="form-control" id="identification" formControlName="identification">
-            </div>
-            <!-- <div class="input-group mb-3">
-              <input type="text" class="form-control" formControlName="discountCode" placeholder="Enter discount code">
-              <button class="btn btn-outline-secondary" type="button" (click)="applyDiscount()">Apply Discount</button>
-            </div> -->
-            <button type="submit" class="btn btn-primary">Reserve Room</button>
-          </form>
-        </div>
-          
-          
-    </div>
-    </div>
+            <form [formGroup]="form" (ngSubmit)="submitForm()">
+              <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" class="form-control" formControlName="firstName" required>
+                <div class="invalid-feedback" *ngIf="form.controls.firstName.invalid && (form.controls.firstName.dirty || form.controls.firstName.touched)">
+                  <div *ngIf="form.controls.firstName.errors.required">
+                    First Name is required.
+                  </div>
+                </div>
+              </div>
 
+             
+              <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" class="form-control" formControlName="lastName" required>
+                <div class="invalid-feedback" *ngIf="form.controls.lastName.invalid && (form.controls.lastName.dirty || form.controls.lastName.touched)">
+                  <div *ngIf="form.controls.lastName.errors.required">
+                    Last Name is required.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber" required>
+                <div class="invalid-feedback" *ngIf="form.controls.phoneNumber.invalid && (form.controls.phoneNumber.dirty || form.controls.phoneNumber.touched)">
+                  <div *ngIf="form.controls.phoneNumber.errors.required">
+                    Phone Number is required.
+                  </div>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" formControlName="email" required>
+                <div class="invalid-feedback" *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+                  <div *ngIf="form.controls.email.errors.required">
+                    Email is required.
+                  </div>
+                  <div *ngIf="form.controls.email.errors.email">
+                    Invalid email format.
+                  </div>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label for="identityNumber">Identity Number:</label>
+                <input type="text" id="identityNumber" class="form-control" formControlName="identityNumber" required>
+                <div class="invalid-feedback" *ngIf="form.controls.identityNumber.invalid && (form.controls.identityNumber.dirty || form.controls.identityNumber.touched)">
+                  <div *ngIf="form.controls.identityNumber.errors.required">
+                    Identity Number is required.
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="theme_btn mt-2">Reserve</button>
+            </form>            
+        </div>
+    </div>
+    </div>
 </div>

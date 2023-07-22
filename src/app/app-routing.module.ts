@@ -6,6 +6,7 @@ import { HotelViewComponent } from './components/hotel-view/hotel-view.component
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { RoomReservationComponent } from './components/room-reservation/room-reservation.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'hotel-view', component: HotelViewComponent },
   { path: 'reservation', component: RoomReservationComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] }, // Add AuthGuard here
+  { path: 'my-account', component: MyAccountComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

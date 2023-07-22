@@ -1,0 +1,39 @@
+<!-- my-account.component.html -->
+<div class="my-account py_8">
+   <div class="container">
+   <div class="heading">
+    <h2>Welcome to Your Account, {{ user.fullName }}</h2>
+    <h3>Your Bookings</h3>
+   </div>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th  scope="col">#</th>
+            <th  scope="col">Booking ID</th>
+            <th  scope="col">Hotel</th>
+            <th  scope="col">Check-in Date</th>
+            <th  scope="col">Check-out Date</th>
+            <th  scope="col">Total Nights</th>
+            <th  scope="col">Price</th>
+            <th  scope="col">Payment Status</th>
+            <th  scope="col">Reservation Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of bookings; index as i">
+            <th  scope="col">{{ i + 1}}</th>
+            <td  scope="col">{{ item.id }}</td>
+            <td  scope="col">{{ item.room.property.name }}</td>
+            <td  scope="col">{{ item.startDate | date: 'EEEE dd MMM yyyy' }}</td>
+            <td  scope="col">{{ item.endDate |  date: 'EEEE dd MMM yyyy' }}</td>
+            <td  scope="col">{{ item.totalNight }}</td>
+            <td  scope="col">{{ item.total |  currency:'PKR ':'symbol':'1.0-0' }}</td>
+            <td  scope="col">{{ item.payement_status }}</td>
+            <td  scope="col">{{ item.reservation_status }}</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</div>
+      
+  

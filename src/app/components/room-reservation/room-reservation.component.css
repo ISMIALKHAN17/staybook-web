@@ -97,3 +97,54 @@ input.form-control {
 h2{
     font-size: 40px;
 }
+.room_reservation {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 20px;
+}
+
+.coupon_code {
+    margin-bottom: 20px;
+}
+
+.coupon_code form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coupon_code form input {
+    width: 80%;
+    border: none;
+    background: #26547e40;
+    height: 40px;
+    padding: 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.coupon_code form button {
+    width: 20%;
+    border: none;
+    background: var(--main-color);
+    color: #fff;
+    height: 40px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.coupon_code {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.room_reservation h2{
+margin-bottom: 5px;
+}
+
+.room_reservation {
+    position: relative;
+}

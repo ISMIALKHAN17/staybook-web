@@ -47,7 +47,6 @@ export class HotelViewComponent {
     this.fromDate = calendar.getToday();
 		this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
-
   formatDate(date: any): string {
     const formattedDate = new Date(date.year, date.month - 1, date.day);
     const options:any = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
@@ -55,8 +54,6 @@ export class HotelViewComponent {
     const parts = formattedDateString.split(' ');
     return parts[0] + ' ' + parts[1] + ' ' + parts[2] + ' ' + parts[3];
   }
-  
-  
   ngOnInit() {
     this.hotelData = history.state.data;
     this.title = this.hotelData.name

@@ -4,13 +4,14 @@
     <li><a routerLink="/signup" *ngIf="!isLoggedIn">Signup</a></li>
     <li *ngIf="isLoggedIn" class="pos">
       <div class="dropdown">
-        <a class="dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          {{ userName.fullName }}
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="userDropdown">
-          <li><a class="dropdown-item" routerLink="/my-account">My Account</a></li>
-          <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
-        </ul>
+        <a class="dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+        (click)="isDropdownOpen = !isDropdownOpen">
+       {{ userName.fullName }}
+     </a>
+     <ul class="dropdown-menu" aria-labelledby="userDropdown"  *ngIf="isDropdownOpen">
+      <li><a class="dropdown-item" routerLink="/my-account">My Account</a></li>
+      <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+    </ul>
       </div>
     </li>
   </ul>

@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RoomReservationComponent } from './components/room-reservation/room-reservation.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RoomReservationComponent } from './components/room-reservation/room-res
     InnerBannerComponent,
     HotelViewComponent,
     LoginComponent,
-    RoomReservationComponent
+    RoomReservationComponent,
+    MyAccountComponent
     
   ],
   imports: [

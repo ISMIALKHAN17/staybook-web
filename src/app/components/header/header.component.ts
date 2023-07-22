@@ -8,6 +8,7 @@ import { EncryptionService } from 'src/app/services/encryption.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isDropdownOpen: boolean = false;
   constructor(
     private authService: AuthService,
     private encryptionService: EncryptionService
@@ -40,5 +41,6 @@ export class HeaderComponent {
 
   logout(): void {
     this.authService.setLoggedInStatus(false);
+    localStorage.removeItem('user')
   }
 }

@@ -33,7 +33,8 @@ export class SearchResultComponent {
     return truncatedWords.join(' ') + '...';
   }
   navigateToHotelView(hotel: any) {
-
     this.router.navigate(['hotel-view'], { state: { data: hotel , url:window.location.href } });
+    const encryptedRoomData = this.encryptionService.encryptData(JSON.stringify(hotel), 'staybook1700');
+    localStorage.setItem('hotelData', encryptedRoomData);
 }
 }

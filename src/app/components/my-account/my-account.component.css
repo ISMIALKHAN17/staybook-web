@@ -1,0 +1,19 @@
+.heading{
+    text-align: center;
+}
+
+.heading h2{
+    font-size: 30px;
+}
+
+
+td ,th{padding: 13px 5px !important;align-content: center;}
+
+thead th {
+    background: #26547e !important;
+    color: #fff !important;
+}
+
+table.table.table-hover {
+    border: 1px solid #ccc;
+}
